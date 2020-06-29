@@ -1,16 +1,18 @@
-const express = require("express");
-const router = express.Router();
-const to = require("await-to-js").default;
-const { getToken } = require("./utils/TokenClient");
+// imports
+const express = require("express"),
+  router = express.Router(),
+  to = require("await-to-js").default,
+  { getToken } = require("./utils/TokenClient"),
+  axios = require("axios"),
+  { v4: uuidv4 } = require("uuid");
 
-const axios = require("axios");
-const { v4: uuidv4 } = require("uuid");
-
-// variables
+// configuration variables
 require("dotenv").config();
 const { baseURL, pciBaseUrl } = require("./config");
 const clientId = process.env.clientId,
   apiKey = process.env.apiKey;
+
+// placeholder variables
 const newCustomer = {
   request_id: uuidv4(),
   merchant_customer_id: uuidv4(),
@@ -47,7 +49,7 @@ router.post("/customers/create", async (_, res) => {
 
   [err, token] = await to(getToken());
 
-  if (err) {
+  if (!token) {
     return res.status(400).json({ error: "Error in fetching token" });
   }
 
@@ -75,5 +77,14 @@ router.post("/customers/create", async (_, res) => {
 });
 
 // create payment intent
+router.post("/payment_intents/create", async (req, res) => {
+  let err, token;
+
+  [err, token] = await to(getToken());
+
+  if (!token) {
+    return res.status(400).json({ error: "Error in fetching token" });
+  }
+});
 
 module.exports = router;
