@@ -17,7 +17,7 @@ router.get("/", function (req, res, next) {
 });
 
 // create customer
-router.get("/create", async (_, res) => {
+router.post("/customers/create", async (_, res) => {
   try {
     const token = await getToken();
 
