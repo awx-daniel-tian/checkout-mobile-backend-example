@@ -2,7 +2,7 @@ const axios = require("axios");
 const jwt = require("jsonwebtoken");
 const path = require("path");
 require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
-const { authenticationBaseURL } = require("../config");
+const { authenticationBaseURL } = require("./config");
 
 const clientId = process.env.clientId,
   apiKey = process.env.apiKey;

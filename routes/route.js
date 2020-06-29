@@ -2,17 +2,15 @@
 const express = require("express"),
   router = express.Router(),
   to = require("await-to-js").default,
-  { getToken } = require("./utils/TokenClient"),
+  { getToken } = require("../utils/TokenClient"),
   axios = require("axios");
 
 // configuration variables
 require("dotenv").config();
-const { authenticationBaseURL, paymentBaseURL } = require("./config");
-const clientId = process.env.clientId,
-  apiKey = process.env.apiKey;
+const { paymentBaseURL } = require("../utils/config");
 
 // placeholder variables
-const { newCustomer, newPaymentIntent } = require("./fake_data");
+const { newCustomer, newPaymentIntent } = require("../utils/fake_data");
 
 // serving very basic frontend
 router.get("/", (_, res) => {
