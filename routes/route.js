@@ -10,7 +10,7 @@ require("dotenv").config();
 const { paymentBaseURL } = require("../utils/config");
 
 // placeholder variables
-const { newCustomer, newPaymentIntent } = require("../utils/fake_data");
+const { getNewCustomer, getNewPaymentIntent } = require("../utils/fake_data");
 
 // serving very basic frontend
 router.get("/", (_, res) => {
@@ -39,7 +39,7 @@ router.post("/customers/create", async (_, res) => {
         Authorization: `Bearer ${token}`,
       },
       // below is a fake customer used for demo purpose
-      data: newCustomer,
+      data: getNewCustomer(),
     })
   );
 
@@ -78,7 +78,7 @@ router.post("/payment_intents/create", async (req, res) => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      data: newPaymentIntent,
+      data: getNewPaymentIntent(),
     })
   );
 

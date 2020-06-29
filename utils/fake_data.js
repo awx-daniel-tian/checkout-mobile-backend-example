@@ -1,6 +1,6 @@
 const { v4: uuidv4 } = require("uuid");
 
-const newCustomer = {
+const getNewCustomer = () => ({
   request_id: uuidv4(),
   merchant_customer_id: uuidv4(),
   email: "qa.testing@airwallex.com",
@@ -23,9 +23,9 @@ const newCustomer = {
     "234": "123",
     "345": "123",
   },
-};
+});
 
-const newPaymentIntent = {
+const getNewPaymentIntent = () => ({
   request_id: uuidv4(),
   amount: 100,
   email: "joshua@airwallex.com",
@@ -67,6 +67,6 @@ const newPaymentIntent = {
   },
   descriptor: "vip8888",
   additional_data: "131231232",
-};
+});
 
-module.exports = { newCustomer, newPaymentIntent };
+module.exports = { getNewCustomer, getNewPaymentIntent };
