@@ -1,4 +1,4 @@
-const baseURL = "https://api-demo.airwallex.com";
-const pciBaseUrl = "https://demo-pci-api.airwallex.com";
+const authenticationBaseURL = "https://api-demo.airwallex.com";
+const paymentBaseURL = "https://demo-pci-api.airwallex.com";
 
-module.exports = { baseURL, pciBaseUrl };
+module.exports = { authenticationBaseURL, paymentBaseURL };

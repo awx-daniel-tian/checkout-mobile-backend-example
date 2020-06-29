@@ -2,7 +2,7 @@ const axios = require("axios");
 const jwt = require("jsonwebtoken");
 const path = require("path");
 require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
-const { baseURL } = require("../config");
+const { authenticationBaseURL } = require("../config");
 
 const clientId = process.env.clientId,
   apiKey = process.env.apiKey;
@@ -14,7 +14,7 @@ const login = async () => {
     const {
       data: { token },
     } = await axios({
-      url: `${baseURL}/api/v1/authentication/login?api_key=${apiKey}&client_id=${clientId}`,
+      url: `${authenticationBaseURL}/api/v1/authentication/login?api_key=${apiKey}&client_id=${clientId}`,
       method: "POST",
       timeout: 0,
       headers: {
