@@ -2,7 +2,7 @@
 const express = require("express"),
   router = express.Router(),
   to = require("await-to-js").default,
-  { getToken } = require("../utils/TokenClient"),
+  { getToken } = require("../utils/token-client"),
   axios = require("axios");
 
 // configuration variables
@@ -10,7 +10,7 @@ require("dotenv").config();
 const { paymentBaseURL } = require("../utils/config");
 
 // placeholder variables
-const { getNewCustomer, getNewPaymentIntent } = require("../utils/fake_data");
+const { getNewCustomer, getNewPaymentIntent } = require("../utils/fake-data");
 
 // serving very basic frontend
 router.get("/", (_, res) => {
