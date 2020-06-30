@@ -26,7 +26,7 @@ Here's an explanation of how the payment flow works between the merchant's App C
 
 1. Customer initiates Payment Intent on App Client
 2. If customer is new, merchant backend creates a new customer
-3. Merchant backend passes the Payment Intent to the Airwallex API and returns a Client Secret to the App Client (associated with the payment)
+3. Merchant Backend passes the Payment Intent to the Airwallex API and returns a client secret to the App Client
 4. App Client segues to Select Payment Option View and queries the merchant backend for customer secret, which will query it from the Airwallex API
 5. App Client can list and create payment methods based on the returned customer secret using the Airwallex SDK
 6. App Client can then confirm payment intent using the Airwallex SDK
