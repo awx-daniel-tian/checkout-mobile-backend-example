@@ -31,13 +31,10 @@ const login = async () => {
 
 const getToken = async () => {
   if (!jsonToken) {
-    // fetch a new pair
     jsonToken = await login();
   } else {
-    // check if expired or not
     const { exp } = jwt.decode(jsonToken);
     if (Date.now() >= exp * 1000) {
-      // fetch new key
       jsonToken = await login();
     }
   }
